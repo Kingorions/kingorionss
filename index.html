@@ -27,6 +27,14 @@
             margin: 0 20px;
             text-align: center;
         }
+        h2 {
+            font-size: 2em;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            margin: 10px 20px 0;
+            text-align: center;
+        }
         .buttons {
             display: flex;
             gap: 30px;
@@ -119,6 +127,21 @@
             right: 20px;
             transform: rotate(10deg);
         }
+        #photo3 {
+            top: 20px;
+            right: 20px;
+            transform: rotate(8deg);
+        }
+        #photo4 {
+            bottom: 20px;
+            left: 20px;
+            transform: rotate(-8deg);
+        }
+        #photo5 {
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%) rotate(5deg);
+        }
         .music-control {
             position: fixed;
             top: 20px;
@@ -145,6 +168,9 @@
             h1 {
                 font-size: 2em;
             }
+            h2 {
+                font-size: 1.5em;
+            }
             button {
                 padding: 10px 25px;
                 font-size: 1.2em;
@@ -167,6 +193,9 @@
             #volumeSlider {
                 width: 80px;
             }
+            #photo5 {
+                top: 40%;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -187,7 +216,17 @@
     <div class="photo-frame" id="photo2">
         <img src="image2.jpg" alt="Foto 2">
     </div>
+    <div class="photo-frame" id="photo3">
+        <img src="image3.jpg" alt="Foto 3">
+    </div>
+    <div class="photo-frame" id="photo4">
+        <img src="image4.jpg" alt="Foto 4">
+    </div>
+    <div class="photo-frame" id="photo5">
+        <img src="image5.jpg" alt="Foto 5">
+    </div>
     <h1>Você me perdoa, meu amor?</h1>
+    <h2>Se existissem mais 100 mil universos, eu te escolheria em todos eles, você é quem eu amo &lt;3</h2>
     <div class="buttons">
         <button id="yesBtn" onclick="alert('Você é meu mundo! Obrigado por me perdoar, meu amor! ❤️')">Sim</button>
         <button id="noBtn">Não</button>
