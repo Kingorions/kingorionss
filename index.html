@@ -258,8 +258,9 @@
 </head>
 <body>
     <!-- Vídeo de fundo -->
-    <video id="backgroundVideo" autoplay muted loop playsinline>
+    <video id="backgroundVideo" autoplay muted loop playsinline poster="image1.jpg">
         <source src="background-video.mp4" type="video/mp4">
+        <source src="background-video.webm" type="video/webm">
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
@@ -314,6 +315,15 @@
         const music = document.getElementById('backgroundMusic');
         const musicBtn = document.getElementById('musicBtn');
         const volumeSlider = document.getElementById('volumeSlider');
+        const video = document.getElementById('backgroundVideo');
+
+        // Depuração do vídeo
+        video.addEventListener('error', (e) => {
+            console.error('Erro ao carregar o vídeo:', e);
+        });
+        video.addEventListener('loadeddata', () => {
+            console.log('Vídeo carregado com sucesso!');
+        });
 
         // Define o volume inicial para um nível médio (0.5 = 50% do volume máximo)
         music.volume = 0.5;
