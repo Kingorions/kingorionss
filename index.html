@@ -40,6 +40,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin: 10px 0 0;
             max-width: 500px; /* Limit the width to break the line naturally */
+            font-family: 'Bangers', cursive; /* Fonte estilizada para remeter a Jinx e Ekko */
         }
         .buttons {
             display: flex;
@@ -155,13 +156,13 @@
         }
         #photo7 {
             top: 10px;
-            left: 50%;
-            transform: translateX(-150%) rotate(-3deg); /* Positioned slightly left of center */
+            right: 200px; /* Ajustado para a posição da seta no canto superior direito */
+            transform: rotate(-3deg);
         }
         #photo8 {
             bottom: 10px;
-            left: 50%;
-            transform: translateX(50%) rotate(3deg); /* Positioned slightly right of center */
+            left: 200px; /* Ajustado para a posição da seta no canto inferior esquerdo */
+            transform: rotate(3deg);
         }
         .music-control {
             position: fixed;
@@ -225,15 +226,18 @@
             }
             #photo7 {
                 top: 5px;
-                transform: translateX(-150%) rotate(-3deg);
+                right: 150px; /* Ajustado para mobile */
+                transform: rotate(-3deg);
             }
             #photo8 {
                 bottom: 5px;
-                transform: translateX(50%) rotate(3deg);
+                left: 150px; /* Ajustado para mobile */
+                transform: rotate(3deg);
             }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet"> <!-- Adicionando a fonte Bangers -->
 </head>
 <body>
     <!-- Áudio -->
@@ -271,7 +275,7 @@
     </div>
     <div class="text-container">
         <h1>Você me perdoa, meu amor?</h1>
-        <h2>Se existissem mais 100 mil universos,<br>eu te escolheria em todos eles,<br>você é quem eu amo <3</h2>
+        <h2>'não importa o que aconteceu no passado, nunca é tarde para construir algo novo para alguém que vale a pena.'<br>eu te escolheria em todos os universos que existissem</h2>
         <div class="buttons">
             <button id="yesBtn" onclick="alert('Você é meu mundo! Obrigado por me perdoar, meu amor! ❤️')">Sim</button>
             <button id="noBtn">Não</button>
