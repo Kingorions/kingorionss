@@ -119,6 +119,21 @@
             right: 20px;
             transform: rotate(10deg);
         }
+        /* Estilo do botão de música */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
+        }
+        #musicBtn {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #ff6f91;
+            color: white;
+            border-radius: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
         /* Responsividade */
         @media (max-width: 600px) {
             h1 {
@@ -135,11 +150,27 @@
             .signature {
                 font-size: 1.5em;
             }
+            .music-control {
+                top: 10px;
+                right: 10px;
+            }
+            #musicBtn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Áudio -->
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <div class="music-control">
+        <button id="musicBtn" onclick="toggleMusic()">Pausar Música</button>
+    </div>
     <div class="photo-frame" id="photo1">
         <img src="image1.jpg" alt="Foto 1">
     </div>
@@ -155,6 +186,8 @@
 
     <script>
         const noBtn = document.getElementById('noBtn');
+        const music = document.getElementById('backgroundMusic');
+        const musicBtn = document.getElementById('musicBtn');
 
         noBtn.addEventListener('mouseover', moveButton);
         noBtn.addEventListener('click', moveButton);
@@ -181,8 +214,20 @@
         }
 
         setInterval(createHeart, 500);
+
+        // Controle da música
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicBtn.textContent = 'Pausar Música';
+            } else {
+                music.pause();
+                musicBtn.textContent = 'Tocar Música';
+            }
+        }
     </script>
 </body>
+</html>
 </html>
     </script>
 </body>
