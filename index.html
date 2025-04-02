@@ -19,21 +19,27 @@
             overflow: hidden;
             position: relative;
         }
+        .text-container {
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 80%; /* Prevent text from stretching too wide */
+        }
         h1 {
             font-size: 3em;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            margin: 0 20px;
-            text-align: center;
+            color: #ff4757; /* Red color to match the hearts */
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            margin: 0;
         }
         h2 {
-            font-size: 2em;
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            margin: 10px 20px 0;
-            text-align: center;
+            font-size: 1.8em;
+            color: #ff4757;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 10px 0 0;
+            max-width: 500px; /* Limit the width to break the line naturally */
         }
         .buttons {
             display: flex;
@@ -68,9 +74,8 @@
         .signature {
             margin-top: 30px;
             font-size: 1.8em;
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+            color: #ff4757;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         .heart {
             position: absolute;
@@ -79,6 +84,7 @@
             background: #ff4757;
             transform: rotate(-45deg);
             animation: float 6s infinite;
+            z-index: 1;
         }
         .heart::before,
         .heart::after {
@@ -103,10 +109,10 @@
         }
         .photo-frame {
             position: absolute;
-            width: 200px;
-            height: 150px;
+            width: 150px; /* Reduced size to create more space */
+            height: 100px;
             background: #fff;
-            border: 10px solid #fff;
+            border: 8px solid #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             z-index: 0;
@@ -118,35 +124,35 @@
             display: block;
         }
         #photo1 {
-            top: 20px;
-            left: 20px;
+            top: 10px;
+            left: 10px;
             transform: rotate(-10deg);
         }
         #photo2 {
-            bottom: 20px;
-            right: 20px;
+            bottom: 10px;
+            right: 10px;
             transform: rotate(10deg);
         }
         #photo3 {
-            top: 20px;
-            right: 20px;
+            top: 10px;
+            right: 10px;
             transform: rotate(8deg);
         }
         #photo4 {
-            bottom: 20px;
-            left: 20px;
+            bottom: 10px;
+            left: 10px;
             transform: rotate(-8deg);
         }
         #photo5 {
             top: 50%;
-            left: 20px;
+            left: 10px;
             transform: translateY(-50%) rotate(5deg);
         }
         .music-control {
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 2;
+            z-index: 3;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -165,19 +171,25 @@
             cursor: pointer;
         }
         @media (max-width: 600px) {
+            .text-container {
+                padding: 15px;
+                max-width: 90%;
+            }
             h1 {
                 font-size: 2em;
             }
             h2 {
-                font-size: 1.5em;
+                font-size: 1.3em;
+                max-width: 300px;
             }
             button {
                 padding: 10px 25px;
                 font-size: 1.2em;
             }
             .photo-frame {
-                width: 150px;
-                height: 100px;
+                width: 120px;
+                height: 80px;
+                border: 5px solid #fff;
             }
             .signature {
                 font-size: 1.5em;
@@ -225,13 +237,15 @@
     <div class="photo-frame" id="photo5">
         <img src="image5.jpg" alt="Foto 5">
     </div>
-    <h1>Você me perdoa, meu amor?</h1>
-    <h2>Se existissem mais 100 mil universos, eu te escolheria em todos eles, você é quem eu amo &lt;3</h2>
-    <div class="buttons">
-        <button id="yesBtn" onclick="alert('Você é meu mundo! Obrigado por me perdoar, meu amor! ❤️')">Sim</button>
-        <button id="noBtn">Não</button>
+    <div class="text-container">
+        <h1>Você me perdoa, meu amor?</h1>
+        <h2>Se existissem mais 100 mil universos,<br>eu te escolheria em todos eles,<br>você é quem eu amo <3</h2>
+        <div class="buttons">
+            <button id="yesBtn" onclick="alert('Você é meu mundo! Obrigado por me perdoar, meu amor! ❤️')">Sim</button>
+            <button id="noBtn">Não</button>
+        </div>
+        <div class="signature">Assinado, Victor</div>
     </div>
-    <div class="signature">Assinado, Victor</div>
 
     <script>
         const noBtn = document.getElementById('noBtn');
