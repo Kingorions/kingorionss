@@ -109,8 +109,8 @@
         }
         .photo-frame {
             position: absolute;
-            width: 150px;
-            height: 100px;
+            width: 180px; /* Increased size */
+            height: 120px;
             background: #fff;
             border: 8px solid #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -154,14 +154,14 @@
             transform: translateY(-50%) rotate(-5deg);
         }
         #photo7 {
-            top: 25%;
-            left: 10px;
-            transform: rotate(-3deg);
+            top: 10px;
+            left: 50%;
+            transform: translateX(-150%) rotate(-3deg); /* Positioned slightly left of center */
         }
         #photo8 {
-            bottom: 25%;
-            right: 10px;
-            transform: rotate(3deg);
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(50%) rotate(3deg); /* Positioned slightly right of center */
         }
         .music-control {
             position: fixed;
@@ -202,8 +202,8 @@
                 font-size: 1.2em;
             }
             .photo-frame {
-                width: 120px;
-                height: 80px;
+                width: 150px; /* Adjusted for mobile */
+                height: 100px;
                 border: 5px solid #fff;
             }
             .signature {
@@ -224,10 +224,12 @@
                 top: 40%;
             }
             #photo7 {
-                top: 20%;
+                top: 5px;
+                transform: translateX(-150%) rotate(-3deg);
             }
             #photo8 {
-                bottom: 20%;
+                bottom: 5px;
+                transform: translateX(50%) rotate(3deg);
             }
         }
     </style>
@@ -281,7 +283,7 @@
         const noBtn = document.getElementById('noBtn');
         const music = document.getElementById('backgroundMusic');
         const musicBtn = document.getElementById('musicBtn');
-        const volumeSlider = document6.getElementById('volumeSlider');
+        const volumeSlider = document.getElementById('volumeSlider');
 
         // Define o volume inicial para um nível médio (0.5 = 50% do volume máximo)
         music.volume = 0.5;
