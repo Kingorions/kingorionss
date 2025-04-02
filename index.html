@@ -167,7 +167,7 @@
         Seu navegador não suporta o elemento de áudio.
     </audio>
     <div class="music-control">
-        <button id="musicBtn" onclick="toggleMusic()">Tocar Música</button>
+        <button id="musicBtn" onclick="toggleMusic()">Pausar Música</button>
     </div>
     <div class="photo-frame" id="photo1">
         <img src="image1.jpg" alt="Foto 1">
@@ -226,14 +226,18 @@
             }
         }
 
-        // Play music on first user interaction
-        document.body.addEventListener('click', () => {
-            if (music.paused) {
-                toggleMusic();
-            }
-        }, { once: true });
+        // Tenta tocar a música assim que a página carrega
+        window.addEventListener('load', () => {
+            music.play().catch(error => {
+                console.log("Autoplay bloqueado: ", error);
+                // Se o autoplay for bloqueado, espera por uma interação do usuário
+                document.body.addEventListener('click', () => {
+                    if (music.paused) {
+                        toggleMusic();
+                    }
+                }, { once: true });
+            });
+        });
     </script>
-</body>
-</html>
 </body>
 </html>
