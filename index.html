@@ -15,40 +15,50 @@
             height: 100vh;
             margin: 0;
             font-family: 'Dancing Script', cursive;
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
             overflow: hidden;
             position: relative;
         }
+        /* Estilo para o vídeo de fundo */
+        #backgroundVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Faz o vídeo cobrir toda a área */
+            z-index: -1; /* Coloca o vídeo atrás de tudo */
+            opacity: 0.8; /* Opcional: reduz a opacidade para o conteúdo em cima se destacar */
+        }
         .text-container {
             z-index: 2;
-            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            background: rgba(255, 255, 255, 0.7);
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
-            max-width: 80%; /* Prevent text from stretching too wide */
+            max-width: 80%;
         }
         h1 {
             font-size: 3em;
-            color: #ff6f91; /* Soft pink */
+            color: #ff6f91;
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
             margin: 0;
         }
         h2 {
             font-size: 1.8em;
-            color: #ff4757; /* Red to match the hearts */
+            color: #ff4757;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin: 10px 0 0;
-            max-width: 500px; /* Limit the width to break the line naturally */
-            font-family: 'Bangers', cursive; /* Fonte estilizada para remeter a Jinx e Ekko */
+            max-width: 500px;
+            font-family: 'Bangers', cursive;
         }
         .highlighted-text {
-            color: #6B2D5C; /* Roxo escuro para destacar */
+            color: #6B2D5C;
             text-shadow: 
                 -1px -1px 0 #ffffff,  
                  1px -1px 0 #ffffff,
                 -1px  1px 0 #ffffff,
-                 1px  1px 0 #ffffff; /* Contorno branco ao redor do texto */
+                 1px  1px 0 #ffffff;
         }
         .buttons {
             display: flex;
@@ -118,7 +128,7 @@
         }
         .photo-frame {
             position: absolute;
-            width: 180px; /* Increased size */
+            width: 180px;
             height: 120px;
             background: #fff;
             border: 8px solid #fff;
@@ -132,46 +142,14 @@
             object-fit: cover;
             display: block;
         }
-        #photo1 {
-            top: 10px;
-            left: 10px;
-            transform: rotate(-10deg);
-        }
-        #photo2 {
-            bottom: 10px;
-            right: 10px;
-            transform: rotate(10deg);
-        }
-        #photo3 {
-            top: 10px;
-            right: 10px;
-            transform: rotate(8deg);
-        }
-        #photo4 {
-            bottom: 10px;
-            left: 10px;
-            transform: rotate(-8deg);
-        }
-        #photo5 {
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%) rotate(5deg);
-        }
-        #photo6 {
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%) rotate(-5deg);
-        }
-        #photo7 {
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-3deg); /* Centralizado no topo */
-        }
-        #photo8 {
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%) rotate(3deg); /* Centralizado na base */
-        }
+        #photo1 { top: 10px; left: 10px; transform: rotate(-10deg); }
+        #photo2 { bottom: 10px; right: 10px; transform: rotate(10deg); }
+        #photo3 { top: 10px; right: 10px; transform: rotate(8deg); }
+        #photo4 { bottom: 10px; left: 10px; transform: rotate(-8deg); }
+        #photo5 { top: 50%; left: 10px; transform: translateY(-50%) rotate(5deg); }
+        #photo6 { top: 50%; right: 10px; transform: translateY(-50%) rotate(-5deg); }
+        #photo7 { top: 10px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
+        #photo8 { bottom: 10px; left: 50%; transform: translateX(-50%) rotate(3deg); }
         .music-control {
             position: fixed;
             top: 20px;
@@ -195,59 +173,30 @@
             cursor: pointer;
         }
         @media (max-width: 600px) {
-            .text-container {
-                padding: 15px;
-                max-width: 90%;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1.3em;
-                max-width: 300px;
-            }
-            button {
-                padding: 10px 25px;
-                font-size: 1.2em;
-            }
-            .photo-frame {
-                width: 150px; /* Adjusted for mobile */
-                height: 100px;
-                border: 5px solid #fff;
-            }
-            .signature {
-                font-size: 1.5em;
-            }
-            .music-control {
-                top: 10px;
-                right: 10px;
-            }
-            #musicBtn {
-                padding: 8px 15px;
-                font-size: 0.9em;
-            }
-            #volumeSlider {
-                width: 80px;
-            }
-            #photo5, #photo6 {
-                top: 40%;
-            }
-            #photo7 {
-                top: 5px;
-                left: 50%;
-                transform: translateX(-50%) rotate(-3deg); /* Mantém centralizado no topo */
-            }
-            #photo8 {
-                bottom: 5px;
-                left: 50%;
-                transform: translateX(-50%) rotate(3deg); /* Mantém centralizado na base */
-            }
+            .text-container { padding: 15px; max-width: 90%; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.3em; max-width: 300px; }
+            button { padding: 10px 25px; font-size: 1.2em; }
+            .photo-frame { width: 150px; height: 100px; border: 5px solid #fff; }
+            .signature { font-size: 1.5em; }
+            .music-control { top: 10px; right: 10px; }
+            #musicBtn { padding: 8px 15px; font-size: 0.9em; }
+            #volumeSlider { width: 80px; }
+            #photo5, #photo6 { top: 40%; }
+            #photo7 { top: 5px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
+            #photo8 { bottom: 5px; left: 50%; transform: translateX(-50%) rotate(3deg); }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Vídeo de fundo -->
+    <video id="backgroundVideo" autoplay muted loop>
+        <source src="background-video.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
     <!-- Áudio -->
     <audio id="backgroundMusic" loop>
         <source src="background-music.mp3" type="audio/mpeg">
@@ -300,10 +249,7 @@
         const musicBtn = document.getElementById('musicBtn');
         const volumeSlider = document.getElementById('volumeSlider');
 
-        // Define o volume inicial para um nível médio (0.5 = 50% do volume máximo)
         music.volume = 0.5;
-
-        // Atualiza o volume com base no slider
         volumeSlider.addEventListener('input', () => {
             music.volume = volumeSlider.value;
         });
@@ -322,7 +268,6 @@
             noBtn.style.top = `${newY}px`;
         }
 
-        // Adiciona corações animados
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
@@ -334,7 +279,6 @@
 
         setInterval(createHeart, 500);
 
-        // Controle da música
         function toggleMusic() {
             if (music.paused) {
                 music.play().catch(error => {
@@ -347,11 +291,9 @@
             }
         }
 
-        // Tenta tocar a música assim que a página carrega
         window.addEventListener('load', () => {
             music.play().catch(error => {
                 console.log("Autoplay bloqueado: ", error);
-                // Se o autoplay for bloqueado, espera por uma interação do usuário
                 document.body.addEventListener('click', () => {
                     if (music.paused) {
                         toggleMusic();
