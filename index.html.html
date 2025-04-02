@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Você me perdoa, meu amor?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .buttons {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            z-index: 1;
+        }
+        button {
+            padding: 15px 35px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Dancing Script', cursive;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        #yesBtn {
+            background-color: #ff6f91;
+            color: white;
+        }
+        #noBtn {
+            background-color: #ff9999;
+            color: white;
+            position: relative;
+        }
+        .signature {
+            margin-top: 30px;
+            font-size: 1.8em;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff4757;
+            transform: rotate(-45deg);
+            animation: float 6s infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff4757;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(-45deg); opacity: 0; }
+        }
+        .photo-frame {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            background: #fff;
+            border: 10px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            z-index: 0;
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #photo1 {
+            top: 20px;
+            left: 20px;
+            transform: rotate(-10deg);
+        }
+        #photo2 {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(10deg);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="photo-frame" id="photo1">
+        <img src="image1.jpg" alt="Foto 1">
+    </div>
+    <div class="photo-frame" id="photo2">
+        <img src="image2.jpg" alt="Foto 2">
+    </div>
+    <h1>Você me perdoa, meu amor?</h1>
+    <div class="buttons">
+        <button id="yesBtn" onclick="alert('Você é meu mundo! Obrigado por me perdoar, meu amor! ❤️')">Sim</button>
+        <button id="noBtn">Não</button>
+    </div>
+    <div class="signature">Assinado, Victor</div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('click', moveButton);
+
+        function moveButton() {
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+            const newX = Math.floor(Math.random() * maxX);
+            const newY = Math.floor(Math.random() * maxY);
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+        }
+
+        // Adiciona corações animados
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 3 + 3}s`;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
