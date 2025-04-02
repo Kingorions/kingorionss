@@ -27,7 +27,6 @@
             object-fit: cover;
             z-index: -1;
             opacity: 1;
-            display: none; /* Esconde o vídeo inicialmente */
         }
         .text-container {
             z-index: 2;
@@ -37,7 +36,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 80%;
-            display: none; /* Esconde o conteúdo principal inicialmente */
         }
         h1 {
             font-size: 3em;
@@ -105,7 +103,6 @@
             transform: rotate(-45deg);
             animation: float 6s infinite;
             z-index: 1;
-            display: none; /* Esconde os corações inicialmente */
         }
         .heart::before,
         .heart::after {
@@ -137,7 +134,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             z-index: 0;
-            display: none; /* Esconde as fotos inicialmente */
         }
         .photo-frame img {
             width: 100%;
@@ -162,7 +158,6 @@
             flex-direction: column;
             align-items: flex-end;
             gap: 10px;
-            display: none; /* Esconde o controle de música inicialmente */
         }
         #musicBtn {
             padding: 10px 20px;
@@ -176,63 +171,43 @@
             width: 100px;
             cursor: pointer;
         }
-        /* Estilo da tela inicial */
-        .start-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8); /* Fundo escuro com transparência */
-            backdrop-filter: blur(10px); /* Efeito de desfoque */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            cursor: pointer;
-        }
-        .start-screen h2 {
-            font-size: 2.5em;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin: 0;
-            font-family: 'Dancing Script', cursive;
-        }
+
         /* Media Query para dispositivos móveis */
         @media (max-width: 600px) {
             body {
-                height: 100vh;
-                overflow-y: auto;
+                height: 100vh; /* Garante que o body ocupe a tela inteira */
+                overflow-y: auto; /* Permite rolagem se necessário */
             }
             .text-container {
                 padding: 15px;
-                max-width: 90%;
-                margin: 10px;
+                max-width: 90%; /* Reduz a largura máxima para caber na tela */
+                margin: 10px; /* Adiciona margem para evitar que o texto encoste nas bordas */
             }
             h1 {
-                font-size: 1.8em;
+                font-size: 1.8em; /* Reduz o tamanho do título */
             }
             h2 {
-                font-size: 1.2em;
-                max-width: 90%;
-                line-height: 1.4;
+                font-size: 1.2em; /* Reduz o tamanho do subtítulo */
+                max-width: 90%; /* Garante que o texto não ultrapasse a largura da tela */
+                line-height: 1.4; /* Melhora a legibilidade */
             }
             .buttons {
-                gap: 15px;
+                gap: 15px; /* Reduz o espaço entre os botões */
                 margin-top: 15px;
             }
             button {
-                padding: 10px 20px;
-                font-size: 1.2em;
+                padding: 10px 20px; /* Reduz o padding dos botões */
+                font-size: 1.2em; /* Reduz o tamanho da fonte dos botões */
             }
             .signature {
-                font-size: 1.3em;
+                font-size: 1.3em; /* Reduz o tamanho da assinatura */
             }
             .photo-frame {
-                width: 120px;
+                width: 120px; /* Reduz o tamanho das fotos */
                 height: 80px;
                 border: 5px solid #fff;
             }
+            /* Reposiciona as fotos para evitar sobreposição */
             #photo1 { top: 5px; left: 5px; transform: rotate(-5deg); }
             #photo2 { bottom: 5px; right: 5px; transform: rotate(5deg); }
             #photo3 { top: 5px; right: 5px; transform: rotate(5deg); }
@@ -253,7 +228,7 @@
                 width: 80px;
             }
             .heart {
-                width: 15px;
+                width: 15px; /* Reduz o tamanho dos corações */
                 height: 15px;
             }
             .heart::before,
@@ -267,26 +242,18 @@
             .heart::after {
                 left: 7.5px;
             }
-            .start-screen h2 {
-                font-size: 1.8em; /* Reduz o tamanho do texto no celular */
-            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Tela inicial -->
-    <div class="start-screen" id="startScreen">
-        <h2>Clique aqui</h2>
-    </div>
-
     <video id="backgroundVideo" autoplay muted loop>
         <source src="background-video.mp4.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
     <audio id="backgroundMusic" loop>
-        <source src="background-music.mp3" type="audio/mpeg">
+        <source src="background-music.MP3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
     <div class="music-control">
@@ -317,7 +284,7 @@
     <div class="photo-frame" id="photo8">
         <img src="image8.jpg" alt="Foto 8">
     </div>
-    <div class="text-container" id="mainContent">
+    <div class="text-container">
         <h1>Você me perdoa, meu amor?</h1>
         <h2>
             <span class="highlighted-text">'não importa o que aconteceu no passado, nunca é tarde para construir algo novo para alguém que vale a pena.'</span><br>
@@ -330,44 +297,16 @@
         <div class="signature">Assinado, Victor</div>
     </div>
     <script>
-        const startScreen = document.getElementById('startScreen');
-        const mainContent = document.getElementById('mainContent');
-        const backgroundVideo = document.getElementById('backgroundVideo');
+        const noBtn = document.getElementById('noBtn');
         const music = document.getElementById('backgroundMusic');
         const musicBtn = document.getElementById('musicBtn');
         const volumeSlider = document.getElementById('volumeSlider');
-        const noBtn = document.getElementById('noBtn');
-        const photoFrames = document.querySelectorAll('.photo-frame');
-        const musicControl = document.querySelector('.music-control');
 
-        // Configura o volume inicial
         music.volume = 1;
         volumeSlider.addEventListener('input', () => {
             music.volume = volumeSlider.value;
         });
 
-        // Função para iniciar o áudio e mostrar o conteúdo principal
-        function startExperience() {
-            // Esconde a tela inicial
-            startScreen.style.display = 'none';
-
-            // Mostra o conteúdo principal
-            mainContent.style.display = 'block';
-            backgroundVideo.style.display = 'block';
-            photoFrames.forEach(frame => frame.style.display = 'block');
-            musicControl.style.display = 'flex';
-            document.querySelectorAll('.heart').forEach(heart => heart.style.display = 'block');
-
-            // Inicia o áudio
-            music.play().catch(error => {
-                console.log("Erro ao tocar música: ", error);
-            });
-        }
-
-        // Adiciona o evento de clique na tela inicial
-        startScreen.addEventListener('click', startExperience);
-
-        // Função para mover o botão "Não"
         noBtn.addEventListener('mouseover', moveButton);
         noBtn.addEventListener('click', moveButton);
 
@@ -382,7 +321,6 @@
             noBtn.style.top = `${newY}px`;
         }
 
-        // Função para criar corações flutuantes
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
@@ -394,7 +332,6 @@
 
         setInterval(createHeart, 500);
 
-        // Função para pausar/tocar a música
         function toggleMusic() {
             console.log("Função toggleMusic chamada");
             if (music.paused) {
@@ -407,6 +344,17 @@
                 musicBtn.textContent = 'Tocar Música';
             }
         }
+
+        window.addEventListener('load', () => {
+            music.play().catch(error => {
+                console.log("Autoplay bloqueado: ", error);
+                document.body.addEventListener('click', () => {
+                    if (music.paused) {
+                        toggleMusic();
+                    }
+                }, { once: true });
+            });
+        });
     </script>
 </body>
 </html>
